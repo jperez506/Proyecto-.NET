@@ -7,7 +7,7 @@ namespace ProyectoFinal.Api.Domain
     {
         Dictionary<string, string> images = new Dictionary<string, string>() {
             { "jpg", @"./Domain/Assets/Venecia.jpg" },
-            { "png", @"./Domain/Assets/Hulk.png" }
+            { "png", @"./Domain/Assets/Hulk.png" } //key values
         };
         public Byte[] GetImagen(string formato)
         {

@@ -15,7 +15,11 @@ namespace ProyectoFinal.Api.Domain
         /// <returns>informacion del banco como <see cref="string"/></returns>
         public string consigueTipoDeCambio(string fecha) 
         {
-            var requestUrl = $"https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx/ObtenerIndicadoresEconomicos?Indicador=317&FechaInicio={fecha}&FechaFinal={fecha}&Nombre=Genesis&SubNiveles=N&CorreoElectronico=ivog28@gmail.com&Token=1VIL5LEVA2";
+           
+            DateTime date = new DateTime();
+            DateTime.TryParseExact(fecha, "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date);
+            string formatted = date.ToString("dd/MM/yyyy");
+            var requestUrl = $"https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx/ObtenerIndicadoresEconomicos?Indicador=317&FechaInicio={formatted}&FechaFinal={formatted}&Nombre=Genesis&SubNiveles=N&CorreoElectronico=ivog28@gmail.com&Token=1VIL5LEVA2";
             XmlTextReader reader = new XmlTextReader(requestUrl);
             List<string> lista = new List<string>();
 

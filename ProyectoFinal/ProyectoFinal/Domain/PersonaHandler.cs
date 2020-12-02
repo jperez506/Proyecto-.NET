@@ -20,6 +20,7 @@ namespace ProyectoFinal.Api.Domain
         /// <param name="edadInicial">menor edad</param>
         /// <param name="edadFinal">mayor edad</param>
         /// <returns>personas encontradas </returns>
+        /// 
         public List<Persona> getPersonas(bool genero, int edadInicial, int edadFinal) 
         {
             return context.Personas
@@ -35,6 +36,17 @@ namespace ProyectoFinal.Api.Domain
                 .ToList();
         }
 
+        public int getNumeroRandom() 
+        { 
+            Random rnd = new Random();
+            int RandomNumber = rnd.Next(1, 4); 
+            return RandomNumber;
+        }
+
+        /// <summary>
+        /// Esto es para popular la base de datos, lo ignoramos porfa
+        /// </summary>
+        /// <param name="cantidad"></param>
         public void PopularLaDB(int cantidad)
         {
             Persona persona;
